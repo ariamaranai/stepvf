@@ -3,7 +3,7 @@
   let video;
   let track;
   let getVideo = () => {
-    if (!((video = d.fullscreenElement || d.scrollingElement) instanceof HTMLVideoElement)) {
+    if ((video = d.fullscreenElement || d.scrollingElement)?.localName != "video") {
       let videos = video.getElementsByTagName("video");
       let wndW = innerWidth;
       let wndH = innerHeight;
