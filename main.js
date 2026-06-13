@@ -137,7 +137,7 @@
       addEventListener("wheel", onWheel, { passive: !1 });
       addEventListener("focusin", onFocusIn, 1);;
     } else {
-      chrome.runtime.sendMessage(null, ({ width: fullscreenWidth, height: fullscreenHeight }) => {
+      chrome.runtime.sendMessage(null, ({ width: fullscreenWidth, height: fullscreenHeight }, listener) => {
         let onKeyDown = e => {
           let k = e.keyCode;
           let t = k == 39 ? video.playbackRate * 5
@@ -151,7 +151,6 @@
           )
         }
         let onRateChange = e => e.stopImmediatePropagation();
-        let listener;
         let observer = new ResizeObserver(() => {
           return (listener =
             listener == addEventListener
