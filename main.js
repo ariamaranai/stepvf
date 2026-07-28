@@ -95,7 +95,6 @@
           ? video.style.filter = "brightness(" + (brightness -= (delta = delta < 0 ? -1 : 1)) + "%)contrast(" + (contrast += delta) + "%)"
           : addCue(delta);
       }
-      return 0;
     }
     let addCue = delta => {
       cue &&= (track.removeCue(cue), 0);
@@ -163,7 +162,7 @@
             listener("keydown", onKeyDown, 1),
             listener("mousedown", onMouseDown, 1),
             listener("mouseup", onMouseUp, 1),
-            listener("wheel", onWheel, { capture: !0, passive: !1 }),
+            listener("wheel", onWheel, { capture: 1, passive: 0 }),
             listener("ratechange", onRateChange, 1),
             listener("focusin", onFocusIn, 1)
           );
